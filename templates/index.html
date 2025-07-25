@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Link Shopee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ee4d2d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .result {
+            margin-top: 20px;
+            word-break: break-all;
+        }
+        .copy-btn {
+            margin-top: 10px;
+            background-color: #2d8cee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🔗 Rút gọn link Shopee</h2>
+        <form method="post">
+            <input type="text" name="link" placeholder="Dán link sản phẩm Shopee" required>
+            <button type="submit">Tạo link</button>
+        </form>
+        {% if result %}
+            <div class="result">
+                <strong>Link rút gọn:</strong>
+                <div id="shortLink">{{ result }}</div>
+                <button class="copy-btn" onclick="copyToClipboard()">📋 Copy</button>
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        function copyToClipboard() {
+            const link = document.getElementById('shortLink').innerText;
+            navigator.clipboard.writeText(link);
+            alert("Đã copy: " + link);
+        }
+    </script>
+</body>
+</html>
