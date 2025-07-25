@@ -1,75 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Get Link Shopee</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Tạo Link Shopee YouTube</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f4f4f4;
-            margin: 0;
+            background-color: #f8f9fa;
         }
-        .container {
-            background: white;
+        .box {
+            max-width: 600px;
+            margin: 80px auto;
             padding: 40px;
+            background-color: white;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 90%;
-            max-width: 500px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            margin: 12px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #ee4d2d;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .result {
-            margin-top: 20px;
-            word-break: break-all;
-        }
-        .copy-btn {
-            margin-top: 10px;
-            background-color: #2d8cee;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>🔗 Rút gọn link Shopee</h2>
-        <form method="post">
-            <input type="text" name="link" placeholder="Dán link sản phẩm Shopee" required>
-            <button type="submit">Tạo link</button>
-        </form>
-        {% if result %}
-            <div class="result">
-                <strong>Link rút gọn:</strong>
-                <div id="shortLink">{{ result }}</div>
-                <button class="copy-btn" onclick="copyToClipboard()">📋 Copy</button>
-            </div>
+    <div class="box">
+        <h3 class="mb-4 text-center">🔗 Tạo Link Shopee Cho YouTube</h3>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
         {% endif %}
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Dán link sản phẩm Shopee:</label>
+                <input type="url" class="form-control" name="shopee_link" placeholder="https://shopee.vn/..." required>
+            </div>
+            <button class="btn btn-primary w-100">Tạo Link</button>
+        </form>
+        <p class="mt-4 text-center text-muted">© {{ now.year }} haudau2021</p>
     </div>
-    <script>
-        function copyToClipboard() {
-            const link = document.getElementById('shortLink').innerText;
-            navigator.clipboard.writeText(link);
-            alert("Đã copy: " + link);
-        }
-    </script>
 </body>
 </html>

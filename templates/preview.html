@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Đã Tạo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+        .box {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        .result-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border: 1px dashed #ccc;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h4 class="mb-3 text-center">✅ Link Shopee Đã Tạo</h4>
+        <div class="mb-3">
+            <strong>Link gốc:</strong><br>
+            <a href="{{ original }}" target="_blank">{{ original }}</a>
+        </div>
+        <div class="mb-3">
+            <strong>Link đã gắn affiliate:</strong>
+            <div class="result-box">{{ result }}</div>
+        </div>
+        <div class="text-center">
+            <a href="/" class="btn btn-secondary mt-3">Tạo link mới</a>
+        </div>
+    </div>
+</body>
+</html>
